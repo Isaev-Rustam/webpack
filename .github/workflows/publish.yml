@@ -3,7 +3,7 @@ name: Publish to npm
 on:
   push:
     branches:
-      - main # Замените на ветку, на которую вы хотите реагировать
+      - main
 
 jobs:
   build-and-publish:
