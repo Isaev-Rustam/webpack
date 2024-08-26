@@ -1,3 +1,4 @@
+// types.ts
 export interface BuildPaths {
   entry: string;
   output: string;

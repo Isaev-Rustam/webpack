@@ -1,0 +1,28 @@
+name: Publish to npm
+
+on:
+  push:
+    branches:
+      - main  # Замените на ветку, на которую вы хотите реагировать
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'  # Укажите версию Node.js, соответствующую вашему проекту
+          registry-url: 'https://registry.npmjs.org/'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Publish to npm
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN_WEBPACK_87654321 }}
+        run: npm publish --access public  # Используйте --access restricted для частных пакетов

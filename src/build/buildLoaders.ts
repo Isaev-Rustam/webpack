@@ -1,3 +1,4 @@
+// buildLoaders.ts
 import { ModuleOptions } from 'webpack';
 import ReactRefreshTypeScript from 'react-refresh-typescript';
 import { BuildOptions } from './types/types';
