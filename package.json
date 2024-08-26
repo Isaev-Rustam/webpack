@@ -1,10 +1,10 @@
 {
   "name": "webpack-87654321",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "",
   "main": "./src/index.ts",
   "scripts": {
-    "build": "tsc"
+    "build": "webpack"
   },
   "devDependencies": {
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.15",
