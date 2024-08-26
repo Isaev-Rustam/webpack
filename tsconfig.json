@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5", // Целевая версия JavaScript
-    "module": "esnext", // Модульная система
+    "module": "commonjs", // Модульная система
     "declaration": true, // Создание файлов деклараций .d.ts
     "outDir": "./dist", // Директория для выходных файлов
     "strict": true, // Включение строгого режима проверки
