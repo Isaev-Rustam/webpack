@@ -15,6 +15,14 @@ const config: webpack.Configuration = {
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js'], // Расширения файлов для разрешения
+    fallback: {
+      // Указываем полифиллы для отсутствующих модулей
+      "crypto": require.resolve("crypto-browserify"),
+      "path": require.resolve("path-browserify"),
+      "fs": false,
+      "fs/promises": false,
+      "os": require.resolve("os-browserify/browser")
+    }
   },
   module: {
     rules: [
