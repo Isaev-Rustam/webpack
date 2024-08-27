@@ -15,6 +15,9 @@ const config: webpack.Configuration = {
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js'], // Расширения файлов для разрешения
+    fallback: {
+      "crypto": require.resolve("crypto-browserify"), // добавьте эту строку
+    }
   },
   module: {
     rules: [

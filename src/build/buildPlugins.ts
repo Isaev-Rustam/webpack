@@ -1,5 +1,5 @@
 // buildPlugins.ts
-import webpack, { Configuration, DefinePlugin } from 'webpack';
+import { Configuration, DefinePlugin } from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { BuildOptions } from './types/types';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
@@ -36,8 +36,11 @@ export function buildPlugins({
   }
 
   if (isProd) {
-    const copyAssetsPlugin =
-      shouldCopyAssets &&
+    // plugins.push();
+  }
+
+  if (shouldCopyAssets) {
+    plugins.push(
       new CopyPlugin({
         patterns: [
           {
@@ -45,9 +48,8 @@ export function buildPlugins({
             to: path.resolve(paths.output, 'locales'),
           },
         ],
-      });
-
-    plugins.push(copyAssetsPlugin);
+      })
+    );
   }
 
   if (analyzer) {
