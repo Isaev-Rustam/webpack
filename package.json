@@ -1,8 +1,8 @@
 {
-  "name": "webpack-87654321",
+  "name": "87654321",
   "version": "1.0.6",
   "description": "",
-  "main": "./src/index.ts",
+  "main": "./dist/index.js",
   "scripts": {
     "build": "webpack"
   },

@@ -1,13 +1,15 @@
 {
   "compilerOptions": {
-    "target": "es5", // Целевая версия JavaScript
-    "module": "commonjs", // Модульная система
-    "declaration": true, // Создание файлов деклараций .d.ts
-    "outDir": "./dist", // Директория для выходных файлов
-    "strict": true, // Включение строгого режима проверки
-    "esModuleInterop": true, // Поддержка интеропа между CommonJS и ES6 модулями
-    "skipLibCheck": true // Пропуск проверки типов в библиотеках
+    "target": "es6",                          
+    "module": "commonjs",
+    "jsx": "react",
+    "strict": true,
+    "esModuleInterop": true,
+    "lib": [ "es2015", "dom" ],
+    "outDir": "./dist/",
+    "sourceMap": true,
+    "declaration": true
   },
-  "include": ["src/**/*"], // Включение всех файлов в папке src
-  "exclude": ["node_modules"] // Исключение папки node_modules
+  "include": ["src"],
+  "exclude": ["node_modules", "dist", "./src/stories"]
 }

@@ -5,7 +5,7 @@ const config: webpack.Configuration = {
   mode: 'production', // Используйте 'development' для режима разработки
   entry: './src/index.ts', // Входной файл вашей библиотеки
   output: {
-    filename: 'my-library.js', // Имя выходного файла
+    filename: 'index.js', // Имя выходного файла
     path: path.resolve(__dirname, 'dist'), // Путь к выходной директории
     library: {
       name: 'MyLibrary', // Имя глобальной переменной для вашей библиотеки
