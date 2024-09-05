@@ -16,7 +16,14 @@ export function buildLoaders(options: BuildOptions): ModuleOptions['rules'] {
 
   const tsLoader = {
     test: /\.(ts|tsx)$/, // Обработка .ts и .tsx файлов
-    use: 'ts-loader', // Использование ts-loader
+    use: [
+      {
+        loader: 'ts-loader',
+        options: {
+          transpileOnly: true,
+        },
+      },
+    ], // Использование ts-loader
     exclude: /node_modules/, // Исключение node_modules
   };
 
