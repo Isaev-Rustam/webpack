@@ -1,14 +1,14 @@
 {
   "compilerOptions": {
-    "target": "ESNext",             // Версия ECMAScript для Node.js
-    "module": "commonjs",           // CommonJS для совместимости с Node.js
-    "outDir": "./dist",             // Директория вывода
-    "strict": true,                 // Строгая проверка типов
-    "esModuleInterop": true,        // Совместимость с ES-модулями
-    "skipLibCheck": true,           // Пропуск проверки библиотек
-    "moduleResolution": "node",     // Разрешение модулей как в Node.js
-    "lib": ["ESNext"],              // Указание библиотек (без DOM)
-    "declaration": true             // Генерация типов .d.ts
+    "target": "ESNext", // Версия ECMAScript для Node.js
+    "module": "commonjs", // CommonJS для Node.js
+    "outDir": "./dist", // Директория вывода
+    "strict": true, // Строгая проверка типов
+    "esModuleInterop": true, // Совместимость с ES6 модулями
+    "skipLibCheck": true, // Пропуск проверки библиотек
+    "moduleResolution": "node", // Разрешение модулей как в Node.js
+    "lib": ["ESNext"], // Библиотека ESNext (без DOM)
+    "declaration": true // Генерация типов `.d.ts`
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules"]

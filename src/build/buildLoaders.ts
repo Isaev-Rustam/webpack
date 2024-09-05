@@ -1,7 +1,7 @@
 // buildLoaders.ts
 import { ModuleOptions } from 'webpack';
-import ReactRefreshTypeScript from 'react-refresh-typescript';
-import { BuildOptions } from './types';
+// import ReactRefreshTypeScript from 'react-refresh-typescript';
+import { BuildOptions } from './types/types';
 
 export function buildLoaders(options: BuildOptions): ModuleOptions['rules'] {
   const isDev = options.mode === 'development';
@@ -15,19 +15,9 @@ export function buildLoaders(options: BuildOptions): ModuleOptions['rules'] {
   };
 
   const tsLoader = {
-    exclude: /node_modules/,
-    test: /\.tsx?$/,
-    use: [
-      {
-        loader: 'ts-loader',
-        options: {
-          transpileOnly: true,
-          getCustomTransformers: () => ({
-            before: [isDev && ReactRefreshTypeScript()].filter(Boolean),
-          }),
-        },
-      },
-    ],
+    test: /\.(ts|tsx)$/, // Обработка .ts и .tsx файлов
+    use: 'ts-loader', // Использование ts-loader
+    exclude: /node_modules/, // Исключение node_modules
   };
 
   return [assetLoader, tsLoader];

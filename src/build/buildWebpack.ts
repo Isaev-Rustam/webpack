@@ -1,13 +1,13 @@
 // buildWebpack.ts
 import webpack from 'webpack';
-// import { buildDevServer } from './buildDevServer';
+import { buildDevServer } from './buildDevServer';
 import { buildLoaders } from './buildLoaders';
 import { buildPlugins } from './buildPlugins';
 import { buildResolvers } from './buildResolvers';
-import { buildDevServer } from './buildDevServer';
-import { BuildOptions } from './types/';
+import { BuildOptions } from './types/types';
 
 export function buildWebpack(options: BuildOptions): webpack.Configuration {
+  console.log(options);
   const { mode, paths } = options;
   const isDev = mode === 'development';
 
@@ -24,7 +24,7 @@ export function buildWebpack(options: BuildOptions): webpack.Configuration {
       rules: buildLoaders(options),
     },
     resolve: buildResolvers(options),
-    devServer: isDev ? buildDevServer(options) : undefined,
     devtool: isDev ? 'eval-cheap-module-source-map' : 'source-map',
+    devServer: isDev ? buildDevServer(options) : undefined,
   };
 }
