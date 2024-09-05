@@ -4,7 +4,8 @@
   "description": "",
   "main": "./dist/index.js",
   "scripts": {
-    "build": "webpack"
+    "build": "webpack",
+    "typecheck": "tsc"
   },
   "devDependencies": {
     "@types/node": "^22.5.4",
