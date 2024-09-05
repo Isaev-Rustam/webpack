@@ -1,19 +1,13 @@
 // buildPlugins.ts
 import { Configuration, DefinePlugin } from 'webpack';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import { BuildOptions } from './types/types';
-import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
-import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
-import CopyPlugin from 'copy-webpack-plugin';
-import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
+import { BuildOptions } from './types/';
 import path from 'path';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 export function buildPlugins({
   mode,
   paths,
-  analyzer,
   platform,
-  shouldCopyAssets = false,
 }: BuildOptions): Configuration['plugins'] {
   const isDev = mode === 'development';
   const isProd = mode === 'production';
@@ -30,30 +24,9 @@ export function buildPlugins({
   ];
 
   if (isDev) {
-    /** Выносит проверку типов в отдельный процесс: не нагружая сборку */
-    plugins.push(new ForkTsCheckerWebpackPlugin());
-    plugins.push(new ReactRefreshWebpackPlugin());
   }
 
   if (isProd) {
-    // plugins.push();
-  }
-
-  if (shouldCopyAssets) {
-    plugins.push(
-      new CopyPlugin({
-        patterns: [
-          {
-            from: path.resolve(paths.public, 'locales'),
-            to: path.resolve(paths.output, 'locales'),
-          },
-        ],
-      })
-    );
-  }
-
-  if (analyzer) {
-    plugins.push(new BundleAnalyzerPlugin());
   }
 
   return plugins;

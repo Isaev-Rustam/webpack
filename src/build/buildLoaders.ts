@@ -1,7 +1,7 @@
 // buildLoaders.ts
 import { ModuleOptions } from 'webpack';
 import ReactRefreshTypeScript from 'react-refresh-typescript';
-import { BuildOptions } from './types/types';
+import { BuildOptions } from './types';
 
 export function buildLoaders(options: BuildOptions): ModuleOptions['rules'] {
   const isDev = options.mode === 'development';

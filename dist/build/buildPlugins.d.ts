@@ -1,3 +1,3 @@
 import { Configuration } from 'webpack';
-import { BuildOptions } from './types/types';
-export declare function buildPlugins({ mode, paths, analyzer, platform, shouldCopyAssets, }: BuildOptions): Configuration['plugins'];
+import { BuildOptions } from './types/';
+export declare function buildPlugins({ mode, paths, platform, }: BuildOptions): Configuration['plugins'];

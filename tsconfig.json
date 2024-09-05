@@ -1,14 +1,15 @@
 {
   "compilerOptions": {
-    "target": "es6",
-    "module": "commonjs",
-    "strict": true,
-    "esModuleInterop": true,
-    "lib": [ "es2015", "dom" ],
-    "outDir": "./dist/",
-    "sourceMap": true,
-    "declaration": true
+    "target": "ESNext",             // Версия ECMAScript для Node.js
+    "module": "commonjs",           // CommonJS для совместимости с Node.js
+    "outDir": "./dist",             // Директория вывода
+    "strict": true,                 // Строгая проверка типов
+    "esModuleInterop": true,        // Совместимость с ES-модулями
+    "skipLibCheck": true,           // Пропуск проверки библиотек
+    "moduleResolution": "node",     // Разрешение модулей как в Node.js
+    "lib": ["ESNext"],              // Указание библиотек (без DOM)
+    "declaration": true             // Генерация типов .d.ts
   },
-  "include": ["src"],
-  "exclude": ["node_modules", "dist", "./src/stories"]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
 }

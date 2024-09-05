@@ -2,33 +2,29 @@ import path from 'path';
 import webpack from 'webpack';
 
 const config: webpack.Configuration = {
-  mode: 'production', // Используйте 'development' для режима разработки
-  entry: './src/index.ts', // Входной файл вашей библиотеки
+  mode: 'production',  // Режим 'production' или 'development'
+  target: 'node',      // Указывает, что цель сборки — Node.js
+  entry: './src/index.ts',  // Точка входа
   output: {
-    filename: 'index.js', // Имя выходного файла
-    path: path.resolve(__dirname, 'dist'), // Путь к выходной директории
-    library: {
-      name: 'MyLibrary', // Имя глобальной переменной для вашей библиотеки
-      type: 'umd', // Формат модуля
-    },
-    clean: true, // Очистка папки dist перед сборкой
+    filename: 'index.js',    // Имя файла на выходе
+    path: path.resolve(__dirname, 'dist'),  // Директория вывода
+    libraryTarget: 'commonjs2',  // Указывает на CommonJS модули
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js'], // Расширения файлов для разрешения
-    fallback: {
-      "crypto": require.resolve("crypto-browserify"), // добавьте эту строку
-    }
+    extensions: ['.ts', '.js'],  // Расширения файлов для обработки
   },
   module: {
     rules: [
       {
-        test: /\.ts$/, // Обработка файлов с расширением .ts
-        use: 'ts-loader', // Использование ts-loader для трансформации TypeScript в JavaScript
-        exclude: /node_modules/, // Исключение node_modules
+        test: /\.ts$/,             // Файлы с расширением .ts
+        use: 'ts-loader',          // Использование ts-loader
+        exclude: /node_modules/,   // Исключение node_modules
       },
     ],
   },
-  externals: {}, // Пустой externals, так как вы не хотите исключать ничего
+  externals: [                   // Экстерналы (не включать в сборку)
+    /^[a-z\-0-9]+$/ // Игнорировать node_modules
+  ],
 };
 
 export default config;
