@@ -27,5 +27,5 @@ jobs:
 
       - name: Publish to npm
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN_WEBPACK_87654321 }}
+          NODE_AUTH_TOKEN: ${{ secrets.SETUP_WEBPACK_BUILDER }}
         run: npm publish --access public
